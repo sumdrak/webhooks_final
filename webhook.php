@@ -52,4 +52,3 @@ if(isset($_GET['hub_mode']) && isset($_GET['hub_challenge']) && isset($_GET['hub
 http_response_code(200);
 
 ?>
- 
