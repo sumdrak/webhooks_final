@@ -15,7 +15,7 @@ $leadgen_id = $data['entry'][0]['changes'][0]['value']['leadgen_id']; // extract
 
 if($leadgen_id){
   $ch = curl_init();
-  $url = "https://graph.facebook.com/v2.8/".$leadgen_id;
+  $url = "https://graph.facebook.com/v3.2/".$leadgen_id;
   console.log($leadgen_id);
   $url_query = "access_token=".$fb_access_token; 
   $url_final = $url.'?'.$url_query;

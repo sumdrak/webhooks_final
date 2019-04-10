@@ -1,17 +1,17 @@
 <?php
 
 // Bootup the Composer autoloader
-include '../api-library/vendor/autoload.php';  
-session_start();
-use Mautic\Auth\ApiAuth;
-use Mautic\MauticApi;
+//include '../api-library/vendor/autoload.php';  
+//session_start();
+/* use Mautic\Auth\ApiAuth;
+use Mautic\MauticApi; */
 
 
 // facebook variables 
 $challenge = isset($_REQUEST['hub_challenge']) ? $_REQUEST['hub_challenge'] : '';
 $verify_token = isset($_REQUEST['hub_verify_token']) ? $_REQUEST['hub_verify_token'] : ''; 
 
-$fb_access_token = ""; // you have to subscribe to the page that has the form to generate an Access Token
+$fb_access_token = "EAAdlqthTlZCkBANl52dydPeozRYzwj10AzVaZATiOt9R7ZB01Lcd61u1zkCJ2l5JNjZBgsPOKpHEjnL9fcWJoV76I4vYBnjTeNeNOfgZCIhTDTSxOQq2ZB4CgiDsAit95qc67pTIaPaE999LyHzOgY6ZB8OHYQaWynjEKqCdT4WqoYQa4npwy6iw7PwJHnkYOQZD"; // you have to subscribe to the page that has the form to generate an Access Token
 
 
 //Mautic variables
@@ -54,7 +54,7 @@ $handle = fopen('test2.txt','w');
 if($leadgen_id){
 	$ch = curl_init();
 
-	$url = "https://graph.facebook.com/v2.8/".$leadgen_id;
+	$url = "https://graph.facebook.com/v3.2/".$leadgen_id;
 	$url_query = "access_token=".$fb_access_token; 
 
 	$url_final = $url.'?'.$url_query;
@@ -71,7 +71,7 @@ if($leadgen_id){
 } 
 
 
-// check if we have a valid lead before calling Mautic Api
+/* // check if we have a valid lead before calling Mautic Api
 if($lead_email){
 	
 	// Initiate the auth object
@@ -114,7 +114,7 @@ if($lead_email){
 	// and the base URL to the Mautic server (i.e. http://my-mautic-server.com/api/)
 
 	$api = new MauticApi();
-	$contactApi = $api->newApi('contacts', $auth, $settings['baseUrl']);
+	$contactApi = $api->newApi('contacts', $auth, $settings['baseUrl']); */
 
 	//Create a new Contact
 
@@ -130,7 +130,7 @@ if($lead_email){
 	//$data['ipAddress'] = $ipAddress;
 
 	// Create the contact 
-	$contact = $contactApi->create($fields);
+	/* $contact = $contactApi->create($fields);
 
 	if (isset($contact['error'])) {
     	echo $contact['error']['code'] . ": " . $result['error']['message'];
@@ -139,6 +139,6 @@ if($lead_email){
 		echo "Contact created!";
 	}
 
-} // end valid lead check
+} // end valid lead check */
 
 ?>
